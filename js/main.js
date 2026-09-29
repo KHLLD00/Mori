@@ -1,7 +1,7 @@
 // Shared navigation, city selection, and homepage menu preview.
 // This file is intentionally self-contained so homepage tabs do not depend on cart.js helpers.
 (function () {
-  const savedCity = typeof getCity === 'function' ? getCity() : (localStorage.getItem('noon-city') || 'abuja');
+  const savedCity = typeof getCity === 'function' ? getCity() : (localStorage.getItem('mori-city') || 'abuja');
 
   document.querySelectorAll('.city-toggle button').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.city === savedCity);
