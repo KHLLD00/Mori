@@ -1,5 +1,5 @@
-// Menu data transcribed from Noon & Co's Abuja and Lagos menu sheets.
-// Food Bowls (bulk/party sizes) are Abuja-only.
+// Menu data for the MORI concept menu.
+// Food Bowls (bulk/party sizes) are part of the concept menu.
 
 const MENU_DATA = {
   abuja: {
