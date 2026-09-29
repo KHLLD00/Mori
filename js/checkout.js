@@ -1,5 +1,5 @@
 (function () {
-  const WHATSAPP_NUMBER = '2348162702096'; // 0816 270 2096 in international format
+  const WHATSAPP_NUMBER = '2348000000000'; // fictional placeholder contact in international format
 
   const linesEl = document.getElementById('cart-lines');
   const emptyEl = document.getElementById('empty-cart');
@@ -139,26 +139,16 @@
     ctx.fillStyle = '#FBF5EE';
     ctx.fillRect(0, 0, width, height);
 
-    // Logo is drawn from the existing Noon & Co logo asset.
-    const logo = new Image();
-    logo.src = 'assets/logo-mark.png';
+    // MORI uses a text-only receipt identity.
+    const logo = null;
 
     // Keep drawing synchronous so the receipt remains compatible with the
     // existing canvas/blob flow. If the image has loaded, draw it; otherwise
     // the text header remains as a safe fallback.
-    const drawLogo = (x, y, maxWidth, maxHeight, alpha) => {
-      if (!logo.naturalWidth || !logo.naturalHeight) return;
-      const scale = Math.min(maxWidth / logo.naturalWidth, maxHeight / logo.naturalHeight);
-      const w = logo.naturalWidth * scale;
-      const h = logo.naturalHeight * scale;
-      ctx.save();
-      ctx.globalAlpha = alpha;
-      ctx.drawImage(logo, x - w / 2, y - h / 2, w, h);
-      ctx.restore();
-    };
+    const drawLogo = () => {};
 
     // Header logo.
-    drawLogo(width / 2, 45, 150, 58, 1);
+    
 
     ctx.fillStyle = '#221A16';
     ctx.textAlign = 'center';
@@ -177,7 +167,7 @@
     ctx.stroke();
 
     // Center watermark, kept behind the receipt content.
-    drawLogo(width / 2, Math.round(height / 2), Math.min(width * 0.55, 500), Math.min(height * 0.28, 260), 0.055);
+    
 
     ctx.textAlign = 'left';
     ctx.fillStyle = '#8A7A6E';
@@ -265,7 +255,7 @@
     ctx.textAlign = 'center';
     ctx.fillStyle = '#8A7A6E';
     ctx.font = '500 16px "Arial", sans-serif';
-    ctx.fillText('Thank you for ordering from Noon & Co', width / 2, height - 38);
+    ctx.fillText('Thank you for ordering from MORI', width / 2, height - 38);
 
     return canvas;
   }
@@ -316,7 +306,7 @@
   }
 
   function openWhatsApp() {
-    const message = "Hi Noon & Co, I'd like to place an order. I have attached my receipt with my order details.";
+    const message = "Hi MORI, I'd like to place an order. I have attached my receipt with my order details.";
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   }
 
@@ -382,7 +372,7 @@
     if (!receiptBlobUrl) return;
     const link = document.createElement('a');
     link.href = receiptBlobUrl;
-    link.download = `noon-and-co-receipt-${Date.now()}.png`;
+    link.download = `mori-receipt-${Date.now()}.png`;
     link.click();
   });
 
