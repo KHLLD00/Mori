@@ -1,8 +1,8 @@
 // Shared cart state (localStorage-backed, no server) and city selection.
 // Used by index.html, menu.html, and cart.html.
 
-const CART_KEY = 'noon-cart';
-const CITY_KEY = 'noon-city';
+const CART_KEY = 'mori-cart';
+const CITY_KEY = 'mori-city';
 
 function getCart() {
   try {
